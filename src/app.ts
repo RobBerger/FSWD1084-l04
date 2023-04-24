@@ -2,6 +2,7 @@ import express, { NextFunction, Request, Response } from 'express';
 import path from 'path';
 import morgan from 'morgan';
 import coffeeRoutes from './routes/coffeeRoutes';
+import { defaultCoffee } from './controllers/coffeeController';
 
 const app = express();
 app.use(morgan('dev'));
@@ -18,6 +19,8 @@ app.set('view options', {layout: 'layout'});
 
 // TODO: Add routing middleware here
 app.use('/coffee', coffeeRoutes);
+
+app.use('/', defaultCoffee);
 
 app.use((req: Request, res: Response, next: NextFunction) => {
     res.status(404).render('error', {

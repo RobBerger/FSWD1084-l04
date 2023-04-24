@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { allCoffee } from '../controllers/coffeeController';
+import { allCoffee, oneCoffee } from '../controllers/coffeeController';
 
 const router = Router();
 
@@ -7,6 +7,6 @@ const router = Router();
 router.get('/', allCoffee);
 
 // GET /coffee/:name - render the coffee item requested
-router.get('/:name');
+router.get('/:name', oneCoffee);
 
 export default router;

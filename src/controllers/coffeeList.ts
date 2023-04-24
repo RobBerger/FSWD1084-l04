@@ -15,3 +15,5 @@ const coffeeList = [
         price: 4.99
     }
 ]
+
+export default coffeeList
