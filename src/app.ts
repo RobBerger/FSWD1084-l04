@@ -1,6 +1,7 @@
 import express, { NextFunction, Request, Response } from 'express';
 import path from 'path';
 import morgan from 'morgan';
+import coffeeRoutes from './routes/coffeeRoutes';
 
 const app = express();
 app.use(morgan('dev'));
@@ -16,6 +17,7 @@ app.set('views', path.join(__dirname, "../src/views"));
 app.set('view options', {layout: 'layout'});
 
 // TODO: Add routing middleware here
+app.use('/coffee', coffeeRoutes);
 
 app.use((req: Request, res: Response, next: NextFunction) => {
     res.status(404).render('error', {
