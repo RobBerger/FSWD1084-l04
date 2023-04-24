@@ -1,5 +1,6 @@
 import { RequestHandler } from "express";
-import coffeeList from "./coffeeList.js";
+import { Coffee } from "../models/coffee";
+import { coffeeList } from "../models/coffee-data";
 
 export const defaultCoffee: RequestHandler = (req, res, next) => {
     res.redirect('/coffee');
